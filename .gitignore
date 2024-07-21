@@ -1,0 +1,6 @@
+/.DS_Store
+/.venv
+/.vscode
+/__pycache__
+/merged_sorted.txt
+/new_words.txt
