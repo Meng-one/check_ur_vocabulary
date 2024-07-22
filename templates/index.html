@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>单词学习应用</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>单词学习</h1>
+        <div class="alert alert-primary" role="alert">
+            当前单词: <strong>{{ word }}</strong>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: {{ progress.split('/')[0] | float / progress.split('/')[1] | float * 100 }}%;" aria-valuenow="{{ progress.split('/')[0] }}" aria-valuemin="0" aria-valuemax="{{ progress.split('/')[1] }}"></div>
+        </div>
+        <!-- 显示进度的数字 -->
+        <div>{{ progress }}</div>
+        <div class="mt-3">
+            <a href="/mark_new_word/{{ word }}" class="btn btn-warning">标记为生词</a>
+            <a href="/next_word" class="btn btn-primary">下一个</a>
+        </div>
+        <div class="mt-3">
+            <form action="/upload_words" method="post">
+                <button type="submit" class="btn btn-success">上传生词到生词本</button>
+            </form>
+        </div>
+        <div class="mt-3">
+            <h3>生词数量: {{ new_words_count }}</h3>
+            <ul>
+                {% for word in new_words_list %}
+                <li>{{ word }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
