@@ -4,7 +4,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from tools import eudic as ed
 
 app = Flask(__name__)
-app.secret_key = 'llll'
+app.secret_key = ''
 
 # Flask-Login setup
 login_manager = LoginManager()
@@ -12,7 +12,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 # 假设的用户存储
-users = {'alex': {'password': generate_password_hash('llll')}}
+users = {'admin': {'password': generate_password_hash('')}}
 
 # 加载单词列表
 
